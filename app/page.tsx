@@ -1,3 +1,4 @@
+import Carousel from "./(components)/Carousel";
 import Navbar from "./(components)/Navbar";
 import { Poppins, Lato, Montserrat } from "next/font/google";
 
@@ -27,38 +28,48 @@ const montserratSmall = Montserrat({
 type LatestProps = {
   title: string;
   imgPath: string;
-  levels: number[];
 };
 
 const examples: LatestProps[] = [
   {
     title: "To Live (活着)",
     imgPath: "/images/huozhe.webp",
-    levels: [1, 3, 5],
   },
   {
     title: "Call To Arms (呐喊)",
     imgPath: "/images/callToArms.webp",
-    levels: [2, 4, 6],
   },
   {
     title: "Art of War (孫子兵法)",
     imgPath: "/images/artOfWar.webp",
-    levels: [4, 5],
   },
+  // {
+  //   title: "To Live (活着)",
+  //   imgPath: "/images/huozhe.webp",
+  // },
+  // {
+  //   title: "Call To Arms (呐喊)",
+  //   imgPath: "/images/callToArms.webp",
+  // },
+  // {
+  //   title: "Art of War (孫子兵法)",
+  //   imgPath: "/images/artOfWar.webp",
+  // },
 ];
 
+const bulletStyle = `${montserratSmall.className} text-xs md:text-xl flex items-center`;
+
 export default function Home() {
-  const Latest: React.FC<LatestProps> = ({ title, imgPath, levels }) => {
+  const Latest: React.FC<LatestProps> = ({ title, imgPath }) => {
     return (
-      <div className="w-1/6 h-full flex flex-col justify-center items-center bg-white shadow-lg rounded-lg transform transition duration-500 hover:scale-105">
+      <div className="w-1/ h-full flex flex-col justify-center items-center bg-white shadow-xl rounded-lg transform transition duration-500 hover:scale-105 hover:shadow-2xl">
         <img
           className="h-5/6 w-full rounded-t-lg object-cover"
           src={imgPath}
           alt={title}
         />
         <h1
-          className={`h-1/4 ${montserratMed.className} text-center text-xl my-2 px-4 text-gray-800`}
+          className={`h-1/4 ${montserratMed.className} text-center sm:text-sm md:text-md lg:text-lg my-4 px-4 text-gray-900`}
         >
           {title}
         </h1>
@@ -67,50 +78,103 @@ export default function Home() {
   };
 
   return (
-    <main className="flex h-screen w-screen flex-col items-center">
+    <main className="flex h-screen w-screen flex-col items-center bg-gray-50">
       <Navbar />
-      <div className="h-2/5 w-full flex flex-row bg-red-600">
-        <div className="w-1/2 h-full flex flex-col justify-evenly items-center">
+      <div className="h-2/6 w-full flex flex-row  bg-red-600">
+        <div className="w-1/2 h-full flex flex-col justify-evenly items-center p-8">
           <div className="flex flex-col text-center">
             <label
-              className={`${montserratBig.className} text-white text-xl md:text-2xl lg:text-5xl`}
+              className={`${montserratBig.className} text-white text-2xl md:text-3xl lg:text-5xl font-semibold`}
             >
-              Classic Chinese Texts
+              Simplified Chinese Texts
             </label>
             <label
-              className={`${montserratSmall.className} text-white text-lg md:text-2xl`}
+              className={`${montserratSmall.className} text-white text-lg md:text-xl mt-2`}
             >
-              Simplified by HSK level{" "}
+              Graded by HSK level{" "}
             </label>
           </div>
           <button
-            className={`${lato.className} border p-3 bg-white rounded-2xl shadow-lg hover:shadow-xl transform hover:translate-y-1 transition-transform duration-200 ease-in-out`}
+            className={`${lato.className} border text-xs md:text-lg border-white py-2 px-4 bg-white text-red-600 rounded-full shadow-lg hover:shadow-2xl hover:text-red-300 transform hover:translate-y-1 transition-transform duration-300 ease-in-out`}
           >
             GET STARTED
           </button>
         </div>
-        <div className="w-1/2 h-full flex justify-center items-center">
-          <img src="/images/woman.png" className="h-5/6"></img>
+        <div className="w-3/4 h-full flex justify-center items-center">
+          <ul className="text-white mt-4 space-y-4 text-left">
+            <li className={bulletStyle}>
+              <span className="inline-block mr-2">
+                <img
+                  src="/icons/check-circle.svg"
+                  alt="Check"
+                  className="h-5 w-5"
+                />
+              </span>
+              Free Chinese Texts
+            </li>
+            <li className={bulletStyle}>
+              <span className="inline-block mr-2">
+                <img
+                  src="/icons/check-circle.svg"
+                  alt="Check"
+                  className="h-5 w-5"
+                />
+              </span>
+              Save New Words
+            </li>
+            <li className={bulletStyle}>
+              <span className="inline-block mr-2">
+                <img
+                  src="/icons/check-circle.svg"
+                  alt="Check"
+                  className="h-5 w-5"
+                />
+              </span>
+              Bilingual Chapter Summaries
+            </li>
+            <li className={bulletStyle}>
+              <span className="inline-block mr-2">
+                <img
+                  src="/icons/check-circle.svg"
+                  alt="Check"
+                  className="h-5 w-5"
+                />
+              </span>
+              New Texts Weekly
+            </li>
+          </ul>
+
+          <img src="/images/woman.png" className="h-5/6 object-contain"></img>
         </div>
       </div>
-      <div className="h-1/2 w-full flex flex-col justify-evenly text-center items-center">
+      <div className="mt-12 h-1/2 w-full flex flex-col justify-evenly items-center">
         <h1
-          className={`${montserratBig.className} text-xl md:text-2xl lg:text-5xl`}
+          className={`${montserratBig.className} text-xl md:text-3xl lg:text-5xl mb-8 font-semibold text-gray-800`}
         >
           Latest Texts
         </h1>
-        <div className="h-1/2 items-center flex flex-row w-full justify-evenly">
+        <div className="h-4/5 md:h-3/5 lg:h-3/5 items-center flex flex-row w-4/5 justify-evenly">
           {examples.map((text, index) => {
             return (
               <Latest
                 title={text.title}
                 imgPath={text.imgPath}
-                levels={text.levels}
                 key={"latest" + index}
               ></Latest>
             );
           })}
         </div>
+        {/* <Carousel>
+          {examples.map((text, index) => {
+            return (
+              <img
+                className="w-1/5"
+                src={text.imgPath}
+                key={"latest" + index}
+              ></img>
+            );
+          })}
+        </Carousel> */}
       </div>
     </main>
   );

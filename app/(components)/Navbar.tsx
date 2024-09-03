@@ -8,7 +8,7 @@ const poppins = Poppins({
 });
 
 const Navbar = () => {
-  const LinkStyle = poppins.className;
+  const LinkStyle = `${poppins.className} hover:text-red-600`;
 
   return (
     <nav className="w-screen h-24 flex flex-row justify-between">
