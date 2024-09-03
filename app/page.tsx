@@ -32,29 +32,29 @@ type LatestProps = {
 
 const examples: LatestProps[] = [
   {
-    title: "To Live (活着)",
-    imgPath: "/images/huozhe.webp",
+    title: "The Scholars (儒林外史)",
+    imgPath: "/images/theScholars.webp",
+  },
+  {
+    title: "The Art of War (孫子兵法)",
+    imgPath: "/images/theArtOfWar.webp",
+  },
+  {
+    title: "Journey to the West (西游记)",
+    imgPath: "/images/journeyToTheWest.webp",
+  },
+  {
+    title: "Water Margin (水浒传)",
+    imgPath: "/images/waterMargin.webp",
   },
   {
     title: "Call To Arms (呐喊)",
     imgPath: "/images/callToArms.webp",
   },
   {
-    title: "Art of War (孫子兵法)",
-    imgPath: "/images/artOfWar.webp",
+    title: "The Plum in the Golden Vase (金瓶梅)",
+    imgPath: "/images/plumVase.webp",
   },
-  // {
-  //   title: "To Live (活着)",
-  //   imgPath: "/images/huozhe.webp",
-  // },
-  // {
-  //   title: "Call To Arms (呐喊)",
-  //   imgPath: "/images/callToArms.webp",
-  // },
-  // {
-  //   title: "Art of War (孫子兵法)",
-  //   imgPath: "/images/artOfWar.webp",
-  // },
 ];
 
 const bulletStyle = `${montserratSmall.className} text-xs md:text-xl flex items-center`;
@@ -62,7 +62,7 @@ const bulletStyle = `${montserratSmall.className} text-xs md:text-xl flex items-
 export default function Home() {
   const Latest: React.FC<LatestProps> = ({ title, imgPath }) => {
     return (
-      <div className="w-1/ h-full flex flex-col justify-center items-center bg-white shadow-xl rounded-lg transform transition duration-500 hover:scale-105 hover:shadow-2xl">
+      <div className="h-full flex flex-col justify-center items-center bg-white shadow-xl rounded-lg transform transition duration-500 hover:scale-105 hover:shadow-2xl">
         <img
           className="h-5/6 w-full rounded-t-lg object-cover"
           src={imgPath}
